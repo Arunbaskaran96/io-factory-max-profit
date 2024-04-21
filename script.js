@@ -39,7 +39,23 @@ function findMaxProfit(n) {
   }
   return findMaxProfit(n - currentBuild);
 }
-console.log("Test case 1 for unit 13");
-findMaxProfit(13);
-console.log(`Total Earnings ${profit}`);
-console.log(`T :${result[0]} P :${result[1]} C :${result[2]}`);
+
+function submitHandler() {
+  const inputVal = document.getElementById("input");
+  if (!inputVal.value) {
+    alert("Please Enter Number");
+  } else {
+    const prevContainer = document.getElementById("answer");
+    if (prevContainer.hasChildNodes()) {
+      prevContainer.removeChild(prevContainer.children[0]);
+    }
+    const number = parseInt(inputVal.value);
+    findMaxProfit(number);
+    const container = document.getElementById("answer");
+    const divElem = document.createElement("h2");
+    divElem.style.textAlign = "center";
+    divElem.style.marginTop = "30px";
+    divElem.innerText = `Answer : T :${result[0]} P :${result[1]} C :${result[2]}`;
+    container.appendChild(divElem);
+  }
+}

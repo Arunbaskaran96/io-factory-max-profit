@@ -50,12 +50,14 @@ function submitHandler() {
       prevContainer.removeChild(prevContainer.children[0]);
     }
     const number = parseInt(inputVal.value);
+    result = new Array(3).fill(0);
+    profit = 0;
     findMaxProfit(number);
     const container = document.getElementById("answer");
     const divElem = document.createElement("h2");
     divElem.style.textAlign = "center";
     divElem.style.marginTop = "30px";
-    divElem.innerText = `Answer : T :${result[0]} P :${result[1]} C :${result[2]}`;
+    divElem.innerText = `Answer : T :${result[0]} P :${result[1]} C :${result[2]} , Profit : ${profit}`;
     container.appendChild(divElem);
   }
 }
